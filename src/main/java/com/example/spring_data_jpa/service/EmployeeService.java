@@ -34,4 +34,8 @@ public class EmployeeService {
     public List<Employee>findByDepartment(Long departmentId){
         return repository.findByDepartment_Id(departmentId);
     }
+
+    public List<Employee>findAll(){
+        return repository.findAll();
+    }
 }

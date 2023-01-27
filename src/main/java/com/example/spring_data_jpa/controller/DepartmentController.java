@@ -6,6 +6,8 @@ import com.example.spring_data_jpa.service.DepartmentService;
 import com.example.spring_data_jpa.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {
@@ -29,5 +31,10 @@ public class DepartmentController {
     @PutMapping
     public Department update(@RequestBody Department department) {
         return service.update(department);
+    }
+
+    @GetMapping
+    public List<Department> findAll(){
+        return service.findAll();
     }
 }

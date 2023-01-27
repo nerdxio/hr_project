@@ -37,4 +37,8 @@ public class EmployeeController {
     public List<Employee>findByDepartment(@PathVariable Long deptId){
         return service.findByDepartment(deptId);
     }
+    @GetMapping
+    public List<Employee> findAll(){
+        return service.findAll();
+    }
 }

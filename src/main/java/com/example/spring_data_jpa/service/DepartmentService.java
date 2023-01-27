@@ -6,6 +6,8 @@ import com.example.spring_data_jpa.repository.DepartmentRepository;
 import com.example.spring_data_jpa.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DepartmentService {
     private final DepartmentRepository repository;
@@ -28,4 +30,7 @@ public class DepartmentService {
         return repository.save(currentDepartment);
     }
 
+    public List<Department> findAll(){
+        return repository.findAll();
+    }
 }
