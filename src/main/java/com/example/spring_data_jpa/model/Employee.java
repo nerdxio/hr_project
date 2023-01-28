@@ -25,6 +25,9 @@ public class Employee {
 
     @ManyToOne
     private Department department;
+
+    @OneToOne
+    private User user;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
