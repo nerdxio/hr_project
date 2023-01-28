@@ -6,8 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter @AllArgsConstructor @NoArgsConstructor
-@Entity @Table(name = "user_account")
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "user_account")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,5 +23,13 @@ public class User {
     private String username;
 
     private String password;
+
+    @ManyToMany
+    @JoinTable(
+            name = "sec_user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
 
 }
